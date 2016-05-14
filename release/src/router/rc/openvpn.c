@@ -819,10 +819,18 @@ void start_vpnserver(int serverNum)
 	//protocol
 	sprintf(&buffer[0], "vpn_server%d_proto", serverNum);
 	fprintf(fp, "proto %s\n", nvram_safe_get(&buffer[0]));
-	if(!strcmp(nvram_safe_get(&buffer[0]), "udp"))
-		fprintf(fp_client, "proto %s\n", nvram_safe_get(&buffer[0]));
-	else
+	if(!strcmp(nvram_safe_get(&buffer[0]), "tcp-server"))
+	{
 		fprintf(fp_client, "proto tcp-client\n");
+	}
+	else if (!strcmp(nvram_safe_get(&buffer[0]), "tcp6-server"))
+	{
+		fprintf(fp_client, "proto tcp6-client\n");
+	}
+	else
+	{
+		fprintf(fp_client, "proto %s\n", nvram_safe_get(&buffer[0]));
+	}
 
 	//port
 	sprintf(&buffer[0], "vpn_server%d_port", serverNum);
