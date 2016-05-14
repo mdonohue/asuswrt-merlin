@@ -1346,6 +1346,8 @@ function defaultSettings() {
 													<select name="vpn_server_proto" class="input_option">
 														<option value="tcp-server" <% nvram_match("vpn_server_proto","tcp-server","selected"); %> >TCP</option>
 														<option value="udp" <% nvram_match("vpn_server_proto","udp","selected"); %> >UDP</option>
+														<option value="tcp6-server" <% nvram_match("vpn_server_proto","tcp6-server","selected"); %> >TCP6</option>
+														<option value="udp6" <% nvram_match("vpn_server_proto","udp6","selected"); %> >UDP6</option>
 													</select>
 												</td>
 											</tr>
